@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TODO: Fix targetNamespace path and xmlns once this repository is inside EWP project -->
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+
+    targetNamespace="https://github.com/erasmus-without-paper/ewp-specs-api-iias-approval/tree/stable-v1"
+    xmlns="https://github.com/erasmus-without-paper/ewp-specs-api-iias-approval/tree/stable-v1"
+>
+    <xs:annotation>
+        <xs:documentation>
+            This schema is a part of the Erasmus Without Paper project. Before you start
+            using it, make sure you have read the general rules described here:
+
+            http://developers.erasmuswithoutpaper.eu/
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="stats-gather-response">
+        <xs:annotation>
+            <xs:documentation>
+                This describes the format of the response returned by the 
+                EWP Stats Gathering API.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="iia-fetchable" type="xs:integer">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Number of IIAs created in the local system which can be fetched by the partner HEI.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="iia-locally-unapproved" type="xs:integer">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Number of IIAs created in the local system which have been approved by the partner HEI,
+                            but the matching copies of the partner have not been approved by the local HEI.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="iia-partner-unapproved" type="xs:integer">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Number of IIAs created in the local system which have not been approved by the partner HEI,
+                            but the matching copies of the partner have been approved by the local HEI.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="academic-year-la-stats" minOccurs="1" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>
+                            This element represents a single academic year by which Learning Agreements are grouped.
+                            It contains a list of statistics for the specified year.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="year" type="xs:string"> <!-- TODO: change type to custom year?-->
+                                <xs:annotation>
+                                    <xs:documentation>
+                                        The year for which statistics are specified.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="outgoing-la-stats">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="la-sum" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    Numer of outgoing LAs
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="la-single-version-approved" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    (only before the mobility) Number outgoing LAs with one version approved by the receiving HEI
+                                                    which has not been followed by any other version.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="la-at-least-one-approved" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    (before and during the mobility) Number of outgoing LAs with at least one version approved
+                                                    by the receiving HEI and with some versions after the approved one.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+
+                                        <xs:element name="la-latest-approved" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    Number of outgoing LAs with the latest version approved by the receiving HEI.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+
+                                        <xs:element name="la-latest-rejected" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    Number of outgoing LAs with the latest version rejected by the receiving HEI.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+
+                                        <xs:element name="la-latest-awaiting" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    Number of outgoing LAs with the latest version awaiting receiving HEI’s approval.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+
+                            <xs:element name="incoming-la-stats">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="la-sum" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    Numer of incoming LAs
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="la-at-least-one-approved" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    Number of incoming LAs with at least one version approved by the receiving HEI.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="la-latest-approved" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    Number of incoming LAs with the latest version approved by the receiving HEI.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+
+                                        <xs:element name="la-latest-rejected" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    Number of incoming LAs with the latest version rejected by the receiving HEI.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+
+                                        <xs:element name="la-latest-awaiting" type="xs:integer">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    Number of incoming LAs with the latest version awaiting receiving HEI’s approval.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

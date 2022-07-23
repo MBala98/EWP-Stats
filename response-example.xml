@@ -1,0 +1,55 @@
+<!-- TODO: Change these paths-->
+<stats-gather-response
+    xmlns="https://github.com/erasmus-without-paper/ewp-specs-api-iias-approval/tree/stable-v1"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        https://github.com/erasmus-without-paper/ewp-specs-api-iias-approval/tree/stable-v1
+        https://raw.githubusercontent.com/erasmus-without-paper/ewp-specs-api-iias-approval/master/response.xsd
+    "
+>
+
+    <iia-fetchable>0</iia-fetchable>
+
+    <iia-locally-unapproved>0</iia-locally-unapproved>
+    <iia-partner-unapproved>0</iia-partner-unapproved>
+    
+    <academic-year-la-stats>
+        <year>2020</year>
+        <outgoing-la-stats>
+            <la-sum>0</la-sum>
+            <la-single-version-approved>0</la-single-version-approved>
+            <la-at-least-one-approved>0</la-at-least-one-approved>
+            <la-latest-approved>0</la-latest-approved>
+            <la-latest-rejected>0</la-latest-rejected>
+            <la-latest-awaiting>0</la-latest-awaiting>
+        </outgoing-la-stats>
+        <incoming-la-stats>
+            <la-sum>0</la-sum>
+            <la-at-least-one-approved>0</la-at-least-one-approved>
+            <la-latest-approved>0</la-latest-approved>
+            <la-latest-rejected>0</la-latest-rejected>
+            <la-latest-awaiting>0</la-latest-awaiting>
+        </incoming-la-stats>
+    </academic-year-la-stats>
+
+        <academic-year-la-stats>
+        <year>2021</year>
+        <outgoing-la-stats>
+            <la-sum>0</la-sum>
+            <la-single-version-approved>0</la-single-version-approved>
+            <la-at-least-one-approved>0</la-at-least-one-approved>
+            <la-latest-approved>0</la-latest-approved>
+            <la-latest-rejected>0</la-latest-rejected>
+            <la-latest-awaiting>0</la-latest-awaiting>
+        </outgoing-la-stats>
+        <incoming-la-stats>
+            <la-sum>0</la-sum>
+            <la-at-least-one-approved>0</la-at-least-one-approved>
+            <la-latest-approved>0</la-latest-approved>
+            <la-latest-rejected>0</la-latest-rejected>
+            <la-latest-awaiting>0</la-latest-awaiting>
+        </incoming-la-stats>
+    </academic-year-la-stats>
+
+</stats-gather-response>
